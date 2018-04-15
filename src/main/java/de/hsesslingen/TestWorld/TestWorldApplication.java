@@ -33,20 +33,20 @@ public class TestWorldApplication {
 
 	}
 
-	@GetMapping("/todos/{toDo}")
-	String read(@PathVariable String toDo) {
-
-		return repository.findByToDo(toDo).toString();
-	}
-
-	@PutMapping("/todos/{toDo}")
+	@PostMapping("/todos/{toDo}")
 	String create(@PathVariable String toDo) {
 
 		repository.save(new ToDoItem(toDo));
 		return toDo+" created";
 	}
 
-	@PostMapping("/todos/setDone/{toDo}")
+	@GetMapping("/todos/{toDo}")
+	String read(@PathVariable String toDo) {
+
+		return repository.findByToDo(toDo).toString();
+	}
+
+	@PutMapping("/todos/setDone/{toDo}")
 	String update(@PathVariable String toDo) {
 
 		ToDoItem item = repository.findByToDo(toDo).get(0);
