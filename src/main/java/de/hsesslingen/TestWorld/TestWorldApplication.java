@@ -119,17 +119,4 @@ class ToDoItem{
 
 	}
 
-	public boolean equals(Object o){
-
-		return ((ToDoItem)o).getToDo().compareTo(toDo) == 0;
-
-	}
-
-
-	
-
-
-
-
-
 }
